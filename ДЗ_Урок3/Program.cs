@@ -18,6 +18,24 @@
             double [] doubleArray = InitDoubleArray (limitDown, limitUP, size);
             PrintDoubleArray(doubleArray);
             System.Console.WriteLine($"Substraction Max and Min = {SubtMinMax(doubleArray)}");
+            System.Console.WriteLine("Task 4");
+            limitDown = 1;
+            limitUP = 100000;
+            Random rand = new Random();
+            int number = rand.Next(limitDown,limitUP);
+            System.Console.WriteLine($"Random number => {number}");
+            array = ArrayFromNumber(number);
+            PrintArray(array);
+        }
+        public static int [] ArrayFromNumber (int number){
+            int size = Convert.ToInt32(Math.Floor(Math.Log10(number)));
+            int [] array = new int [size+1];
+            for (int i = 0; i <= size; i++)
+            {
+                array [size-i] = number % 10;
+                number = number / 10;
+            }
+            return array;
         }
         public static double SubtMinMax (double [] array){
             double max = array [0];
