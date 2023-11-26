@@ -3,27 +3,44 @@
     public class Program{
         public static void Main (string [] args){
             int number;
-            // System.Console.Write("Task 1. Input number => ");
-            // number = InputNumber();
-            // if (number % 7 == 0 & number % 23 == 0)
-            // {
-            //     System.Console.WriteLine($"Number {number} is divided on 7 and 23.");
-            // } else
-            // {
-            //     System.Console.WriteLine($"Number {number} isn't divided on 7 and 23.");
-
-            // }
-            // System.Console.WriteLine("Task 2");
-            // int limit = 0;
-            // System.Console.Write("Input X => ");
-            // int X = InputNumberNoNull(limit);
-            // System.Console.Write("Input Y => ");
-            // int Y = InputNumberNoNull(limit);
-            // System.Console.WriteLine(CoordinateQuarter(X,Y));
+            System.Console.Write("Task 1. Input number => ");
+            number = InputNumber();
+            if (number % 7 == 0 & number % 23 == 0)
+            {
+                System.Console.WriteLine($"Number {number} is divided on 7 and 23.");
+            } else
+            {
+                System.Console.WriteLine($"Number {number} isn't divided on 7 and 23.");
+            }
+            System.Console.WriteLine("Task 2");
+            int limit = 0;
+            System.Console.Write("Input X => ");
+            int X = InputNumberNoNull(limit);
+            System.Console.Write("Input Y => ");
+            int Y = InputNumberNoNull(limit);
+            System.Console.WriteLine(CoordinateQuarter(X,Y));
             System.Console.WriteLine("Task 3");
             System.Console.Write("Input number in 10 at 99 => ");
             number = InputNumberInLimit();
             System.Console.WriteLine($"Max numeric is {MaxNumeric(number)}");
+            System.Console.WriteLine("Task 4");
+            System.Console.Write("Input number => ");
+            number = InputNumberNoNull(limit);
+            NumericNumber(number);
+        }
+        public static void NumericNumber (int number){
+            int temp = Convert.ToInt32(Math.Floor(Math.Log10(number)));
+            int [] result = new int [temp+1];
+            for (int i = 0; i < temp + 1; i++)
+            {
+                result[i] = number % 10;
+                number = number / 10;
+            }
+            for (int i = 0; i < temp + 1; i++)
+            {
+                System.Console.Write($"{result[temp - i]}, ");
+            }
+            System.Console.WriteLine();
         }
         public static int InputNumber() {
             string ? numString = System.Console.ReadLine();
